@@ -18,11 +18,11 @@
 #
 ---
 include:
- - board: xiao_ble_zmk
+ - board: seeed_xiao_nrf52840
    shield: roBa_R
    snippet: studio-rpc-usb-uart
  - board: xiao_ble_zmk
    shield: roBa_L
- - board: xiao_ble_zmk
+ - board: seeed_xiao_nrf52840
    shield: settings_reset
 
