@@ -8,7 +8,7 @@ layers:
   - T
   - Y
   - U
-  - {t: I, h: SCROLL}
+  - h
   - O
   - P
   - A
@@ -23,12 +23,12 @@ layers:
   - K
   - L
   - ''''
-  - {t: Z, h: LEFT SHIFT}
+  - Z
   - X
   - C
   - V
   - B
-  - ':'
+  - '@'
   - ;
   - N
   - M
@@ -41,7 +41,7 @@ layers:
   - {t: '&to_layer_0 INT_HENKAN', h: '6'}
   - {t: SPACE, h: NUM}
   - {t: '&to_layer_0 INT_MUHENKAN', h: ARROW}
-  - BACKSPACE
+  - {t: ENTER, h: FUNCTION}
   - {t: ENTER, h: FUNCTION}
   - DEL
   FUNCTION:
