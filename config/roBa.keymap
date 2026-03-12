@@ -114,8 +114,7 @@
 &trans  &kp LG(LS(LEFT_ARROW))  &trans          &kp LG(LS(RIGHT_ARROW))  &trans   &trans      &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans   &trans      &trans  &trans          &trans          &trans
 
-
-            sensor-bindings = <&inc_dec_kp LC(PG_UP) LC(PG_DN)>;  
+            sensor-bindings = <&inc_dec_kp PAGE_UP PAGE_DOWN>; 
 
         };
 
