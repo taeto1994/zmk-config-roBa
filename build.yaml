@@ -1,7 +1,8 @@
+---
 include:
-  - board: xiao_ble/zmk
+  - board: xiao_ble/nrf52840/zmk  # ✅ 修正
     shield: roBa_L
-  - board: xiao_ble/zmk
+  - board: xiao_ble/nrf52840/zmk  # ✅ 修正
     shield: roBa_R
-  - board: xiao_ble/zmk
+  - board: xiao_ble/nrf52840/zmk  # ✅ 修正
     shield: settings_reset
