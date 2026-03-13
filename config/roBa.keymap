@@ -73,25 +73,17 @@
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
+        }; // ← ★ここで lt_to_layer_0 をしっかり閉じる！
 
-            scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
-                compatible = "zmk,behavior-sensor-rotate";
-                #sensor-binding-cells = <0>;
-                bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
-
-                // 追加: スクロールのタップ時間を設定 (20ms)
-
-                tap-ms = <20>;
-            };
-        };
-    };
-            scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
+        scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+
             // 追加: スクロールのタップ時間を設定 (20ms)
             tap-ms = <20>;
-        };
+        }; // ← そのあとに独立してエンコーダーの設定を書く
+    };
 
     keymap {
         compatible = "zmk,keymap";
