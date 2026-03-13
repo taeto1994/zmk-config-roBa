@@ -74,13 +74,13 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
         }; // ← ★ここで lt_to_layer_0 をしっかり閉じる！
-
         scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
 
             // 追加: スクロールのタップ時間を設定 (20ms)
+
             tap-ms = <20>;
         }; // ← そのあとに独立してエンコーダーの設定を書く
     };
@@ -90,10 +90,10 @@
 
         default_layer {
             bindings = <
-&kp Q      &kp W         &kp E         &kp R                   &kp T                                                    &kp Y            &kp U  &kp I      &kp O    &kp P
-&kp A      &kp S         &kp D         &kp F                   &kp G        &msc SCRL_UP                &kp MINUS       &kp H            &kp J  &kp K      &kp L    &kp SQT
-&kp Z      &kp X         &kp C         &kp V                   &kp B        &kp AT_SIGN                 &kp BACKSPACE   &kp N            &kp M  &kp COMMA  &kp DOT  &kp SLASH
-&kp LCTRL  &kp LEFT_WIN  &kp LEFT_ALT  &lt_to_layer_0 6 GRAVE  &lt 2 SPACE  &lt_to_layer_0 3 SPACE      &lt 1 KP_ENTER  &kp RIGHT_SHIFT                             &kp DEL
+&kp Q      &kp W         &kp E         &kp R                   &kp T                                                         &kp Y            &kp U  &kp I      &kp O    &kp P
+&kp A      &kp S         &kp D         &kp F                   &kp G        &msc SCRL_UP                     &kp MINUS       &kp H            &kp J  &kp K      &kp L    &kp SQT
+&kp Z      &kp X         &kp C         &kp V                   &kp B        &kp AT_SIGN                      &kp BACKSPACE   &kp N            &kp M  &kp COMMA  &kp DOT  &kp SLASH
+&kp LCTRL  &kp LEFT_WIN  &kp LEFT_ALT  &lt_to_layer_0 6 GRAVE  &lt 2 SPACE  &lt_to_layer_0 3 LEFT_SHIFT      &lt 1 KP_ENTER  &kp RIGHT_SHIFT                             &kp DEL
             >;
 
             sensor-bindings = <&scroll_up_down>;
