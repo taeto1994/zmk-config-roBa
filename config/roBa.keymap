@@ -96,10 +96,10 @@
 &kp LCTRL  &kp LEFT_WIN  &kp LEFT_ALT  &lt_to_layer_0 6 GRAVE  &lt 2 SPACE  &lt_to_layer_0 3 LEFT_SHIFT      &lt 1 KP_ENTER  &kp RIGHT_SHIFT                             &kp DEL
             >;
 
-            sensor-bindings = <&scroll_up_down>;
+            sensor-bindings = <&scroll_up_down &inc_dec_kp PAGE_UP PAGE_DOWN>;
         };
 
-        FUNCTION {
+        ARROW {
             bindings = <
 &trans  &trans  &trans  &trans  &kp PRINTSCREEN                         &kp F1  &kp F2  &kp F3  &kp F4  &kp F5
 &trans  &trans  &trans  &trans  &trans           &trans      &kp F13    &kp F6  &kp F7  &kp F8  &kp F9  &kp F10
@@ -115,6 +115,9 @@
 &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp PERIOD      &kp EQUAL                    &kp COLON       &kp LEFT_BRACKET  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp BACKSLASH
 &trans           &trans           &trans           &trans           &trans          &trans                       &trans          &trans                                                               &kp PIPE
             >;
+        };
+
+sensor-bindings = <&inc_dec_kp PAGE_UP PAGE_DOWN &inc_dec_kp PAGE_UP PAGE_DOWN>;
         };
 
         ARROW {
