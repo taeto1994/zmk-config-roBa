@@ -138,7 +138,7 @@
             >;
 
             sensor-bindings =
-                <&scroll_up_down>,
+                <&inc_dec_kp PAGE_UP PAGE_DOWN>,
                 <&inc_dec_kp PAGE_UP PAGE_DOWN>;
         };
 
