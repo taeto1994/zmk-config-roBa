@@ -4,7 +4,7 @@
 #include <dt-bindings/zmk/pointing.h>
 
 // ★スペルを「POINTING」に修正し、スクロール幅を「15」に減らしたよ！(好みで10や20に調整してね)
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 15
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 5
 
 &mt {
     flavor = "balanced";
@@ -66,7 +66,7 @@
         scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
             // ★ tap-ms = <20>; は動きを遅くする原因だったので削除したよ！
         };
     };
