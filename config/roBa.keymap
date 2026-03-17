@@ -5,7 +5,7 @@
 
 // ★スペルを「POINTING」に修正し、スクロール幅を「15」に減らしたよ！(好みで10や20に調整してね)
 
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 3
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 10
 
 &mt {
     flavor = "balanced";
