@@ -3,6 +3,9 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
+// ★ここを復活！「120」がマウスホイール1クリック分の標準パワーだよ
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 120
+
 &mt {
     flavor = "balanced";
     quick-tap-ms = <0>;
@@ -62,7 +65,7 @@
         scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            // 回転が逆の時は UP と DOWN を入れ替えてね
+            // ★もし回す向きが逆だったら、UPとDOWNを入れ替えてね
             bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
         };
     };
@@ -77,6 +80,7 @@
 &kp Z      &kp X         &kp C         &kp V      &kp B      &kp LBKT                 &kp BACKSPACE  &kp N            &kp M  &lt 5 COMMA  &kp DOT  &kp SLASH
 &kp LCTRL  &kp LEFT_WIN  &kp LEFT_ALT  &lt 6 GRAVE &lt 2 SPACE &lt 3 LEFT_SHIFT       &lt 1 KP_ENTER &kp RIGHT_SHIFT                               &kp DEL
             >;
+            // ★すべてのレイヤーで「本当のマウススクロール」を発動させるよ
             sensor-bindings = <&scroll_up_down>;
         };
 
@@ -135,4 +139,9 @@
 &trans  &trans        &trans        &trans        &trans                                    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
 &trans  &trans        &trans        &trans        &trans  &trans      &trans        &trans        &trans        &trans        &trans        &trans
 &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &trans      &bootloader   &trans        &trans        &trans        &trans        &bt BT_CLR
-&trans  &trans        &trans        &trans        &trans
+&trans  &trans        &trans        &trans        &trans  &trans      &trans        &trans                                                  &bt BT_CLR_ALL
+            >;
+            sensor-bindings = <&scroll_up_down>;
+        };
+    };
+};
