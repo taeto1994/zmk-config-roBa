@@ -4,7 +4,7 @@
 #include <dt-bindings/zmk/pointing.h>
 
 // ★スペルを「POINTING」に修正し、スクロール幅を「15」に減らしたよ！(好みで10や20に調整してね)
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 5
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 1
 
 &mt {
     flavor = "balanced";
