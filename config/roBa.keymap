@@ -70,8 +70,8 @@
 &kp Z      &kp X         &kp C         &kp V                 &kp B        &lt 6 LEFT_BRACKET      &kp HASH         &kp N      &kp M  &lt 5 COMMA  &kp DOT  &kp SLASH
 &kp LCTRL  &kp LEFT_WIN  &kp LEFT_ALT  &mt LEFT_SHIFT GRAVE  &lt 2 SPACE  &lt 3 LEFT_SHIFT        &lt 1 BACKSPACE  &kp ENTER                                 &kp DEL
             >;
-            // ★ UPとDOWNの順番を入れ替えて逆向きにしたよ！(以下全レイヤー共通)
-            sensor-bindings = <&inc_dec_kp UP_ARROW DOWN_ARROW &inc_dec_kp UP_ARROW DOWN_ARROW>;
+            // ★DOWNを先に、UPを後に設定（逆向き）
+            sensor-bindings = <&inc_dec_kp DOWN_ARROW UP_ARROW &inc_dec_kp DOWN_ARROW UP_ARROW>;
         };
 
         FUNCTION {
@@ -81,7 +81,8 @@
 &trans  &trans  &trans  &trans  &trans           &trans      &kp CLEAR &trans  &trans    &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans           &trans      &kp AT    &trans                            &trans
             >;
-            sensor-bindings = <&inc_dec_kp UP_ARROW DOWN_ARROW &inc_dec_kp UP_ARROW DOWN_ARROW>;
+            // ★ここも逆向き
+            sensor-bindings = <&inc_dec_kp DOWN_ARROW UP_ARROW &inc_dec_kp DOWN_ARROW UP_ARROW>;
         };
 
         NUM {
@@ -91,7 +92,8 @@
 &trans  &trans  &trans  &trans  &trans  &trans      &kp COLON       &kp LEFT_BRACKET  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans          &trans                                                               &trans
             >;
-            sensor-bindings = <&inc_dec_kp UP_ARROW DOWN_ARROW &inc_dec_kp UP_ARROW DOWN_ARROW>;
+            // ★ここも逆向き
+            sensor-bindings = <&inc_dec_kp DOWN_ARROW UP_ARROW &inc_dec_kp DOWN_ARROW UP_ARROW>;
         };
 
         ARROW {
@@ -101,7 +103,8 @@
 &trans  &trans  &trans  &trans  &trans  &kp CAPS    &trans      &trans          &trans          &trans     &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans      &trans                                             &trans
             >;
-            sensor-bindings = <&inc_dec_kp UP_ARROW DOWN_ARROW &inc_dec_kp UP_ARROW DOWN_ARROW>;
+            // ★ここも逆向き
+            sensor-bindings = <&inc_dec_kp DOWN_ARROW UP_ARROW &inc_dec_kp DOWN_ARROW UP_ARROW>;
         };
 
         MOUSE {
@@ -111,7 +114,8 @@
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans    &trans    &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                              &trans
             >;
-            sensor-bindings = <&inc_dec_kp UP_ARROW DOWN_ARROW &inc_dec_kp UP_ARROW DOWN_ARROW>;
+            // ★ここも逆向き
+            sensor-bindings = <&inc_dec_kp DOWN_ARROW UP_ARROW &inc_dec_kp DOWN_ARROW UP_ARROW>;
         };
 
         SCROLL {
@@ -121,7 +125,8 @@
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                          &trans
             >;
-            sensor-bindings = <&inc_dec_kp UP_ARROW DOWN_ARROW &inc_dec_kp UP_ARROW DOWN_ARROW>;
+            // ★ここも逆向き
+            sensor-bindings = <&inc_dec_kp DOWN_ARROW UP_ARROW &inc_dec_kp DOWN_ARROW UP_ARROW>;
         };
 
         layer_6 {
@@ -131,7 +136,8 @@
 &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &trans      &bootloader   &trans        &trans        &trans        &trans        &bt BT_CLR
 &trans  &trans        &trans        &trans        &trans  &trans      &trans        &trans                                                  &bt BT_CLR_ALL
             >;
-            sensor-bindings = <&inc_dec_kp UP_ARROW DOWN_ARROW &inc_dec_kp UP_ARROW DOWN_ARROW>;
+            // ★最後も逆向き
+            sensor-bindings = <&inc_dec_kp DOWN_ARROW UP_ARROW &inc_dec_kp DOWN_ARROW UP_ARROW>;
         };
     };
 };
