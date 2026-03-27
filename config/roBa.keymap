@@ -1,6 +1,9 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+
+// ★スクロールの移動量（この数字を大きくするとスクロールが速くなるよ）
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 100
 #include <dt-bindings/zmk/pointing.h>
 
 &mt {
@@ -8,13 +11,12 @@
     quick-tap-ms = <0>;
 };
 
-// ★ここをごっそり追加！タイピング中のレイヤー誤爆を防ぐ魔法の設定！
-
+// ★タイピング中のレイヤー誤爆を防ぐ設定
 &lt {
     flavor = "balanced";
     tapping-term-ms = <200>;
     quick-tap-ms = <150>;
-    require-prior-idle-ms = <150>; // これが重要！直前にキーを打ってから150ms以内は絶対にレイヤー移動させない
+    require-prior-idle-ms = <150>;
 };
 
 &trackball {
@@ -27,6 +29,26 @@
         tab {
             bindings = <&kp TAB>;
             key-positions = <1 0>;
+        };
+
+        shift_tab {
+            bindings = <&kp LS(TAB)>;
+            key-positions = <12 11>;
+        };
+
+        muhennkann {
+            bindings = <&to_layer_0 INT_MUHENKAN>;
+            key-positions = <11 10>;
+        };
+
+        double_quotation {
+            bindings = <&kp DOUBLE_QUOTES>;
+            key-positions = <20 21>;
+        };
+
+        eq {
+            bindings = <&kp EQUAL>;
+            key-positions = <24 25>;
         };
     };
 
@@ -44,9 +66,16 @@
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_TO_0";
             bindings = <&mo>, <&to_layer_0>;
-
             #binding-cells = <2>;
-            tapping-term-ms = <400>;
+            tapping-term-ms = <200>;
+        };
+
+        // ★マウスホイール機能の設定（逆向き）
+        scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+            tap-ms = <20>;
         };
     };
 
@@ -55,67 +84,53 @@
 
         default_layer {
             bindings = <
-&kp Q     &kp W         &kp E         &kp R                 &kp T                                              &kp Y          &kp U  &kp I      &kp O    &kp P
-&kp A     &kp S         &kp D         &kp F                 &kp G        &kp ESCAPE              &kp LS(INT1)  &kp H          &kp J  &kp K      &kp L    &kp SQT
-&kp Z     &kp X         &kp C         &kp V                 &kp B        &lt 6 LEFT_BRACKET      &kp MINUS     &kp N          &kp M  &kp COMMA  &kp DOT  &kp SLASH
-&kp HASH  &kp LEFT_WIN  &kp LEFT_ALT  &mt LEFT_SHIFT GRAVE  &lt 2 SPACE  &kp LEFT_CONTROL        &lt 1 ENTER   &kp BACKSPACE                             &kp DEL
+&kp Q      &kp W         &kp E         &kp R                 &kp T                                                                     &kp Y          &kp U  &kp I      &kp O    &kp P
+&kp A      &kp S         &kp D         &kp F                 &kp G        &kp ESCAPE              &none            &kp H          &kp J  &kp K      &kp L    &kp SQT
+&kp Z      &kp X         &kp C         &kp V                 &kp B        &lt 6 LEFT_BRACKET      &kp LS(INT1)     &kp N          &kp M  &kp COMMA  &kp DOT  &kp SLASH
+&kp LCTRL  &kp LEFT_WIN  &kp LEFT_ALT  &mt LEFT_SHIFT GRAVE  &lt 2 SPACE  &lt 3 ENTER             &lt 1 ENTER      &kp BACKSPACE                                 &kp DEL
             >;
-
-            // ★DOWNを先に、UPを後に設定（逆向き）
-
-            sensor-bindings = <&inc_dec_kp DOWN_ARROW UP_ARROW &inc_dec_kp DOWN_ARROW UP_ARROW>;
+            // ★エンコーダーをマウスホイールに！
+            sensor-bindings = <&scroll_up_down &scroll_up_down>;
         };
 
         FUNCTION {
             bindings = <
-&trans  &trans  &trans  &trans  &kp PRINTSCREEN                         &kp STAR  &kp LPAR  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans           &trans      &trans     &kp RBKT  &kp BSLH  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans           &trans      &kp CLEAR  &trans    &trans    &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans           &trans      &trans     &trans                              &trans
+&trans  &trans  &trans  &trans  &kp PRINTSCREEN                      &kp STAR  &kp LPAR  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans           &trans      &trans  &trans    &trans    &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans           &trans      &kp CLEAR &trans  &trans    &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans           &trans      &kp AT    &trans                            &trans
             >;
-
-            // ★ここも逆向き
-
-            sensor-bindings = <&inc_dec_kp DOWN_ARROW UP_ARROW &inc_dec_kp DOWN_ARROW UP_ARROW>;
+            sensor-bindings = <&scroll_up_down &scroll_up_down>;
         };
 
         NUM {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                                 &kp CARET         &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_NUMBER_0
-&trans  &trans  &trans  &trans  &trans  &trans         &kp UNDERSCORE  &kp EXCLAMATION   &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &trans
-&trans  &trans  &trans  &trans  &trans  &kp MINUS      &kp COLON       &kp LEFT_BRACKET  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &trans
-&trans  &trans  &trans  &trans  &trans  &trans         &trans          &trans                                                               &trans
+&trans  &trans  &trans  &trans  &trans                                      &kp CARET         &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_NUMBER_0
+&trans  &trans  &trans  &trans  &trans  &trans      &kp UNDERSCORE  &kp EXCLAMATION   &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &kp COLON       &kp LEFT_BRACKET  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans          &trans                                                               &trans
             >;
-
-            // ★ここも逆向き
-
-            sensor-bindings = <&inc_dec_kp DOWN_ARROW UP_ARROW &inc_dec_kp DOWN_ARROW UP_ARROW>;
+            sensor-bindings = <&scroll_up_down &scroll_up_down>;
         };
 
         ARROW {
             bindings = <
-&trans  &trans  &trans  &trans  &kp CAPS                                       &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans    &trans              &kp UP_ARROW     &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans    &kp LEFT_ARROW      &kp RIGHT_ARROW  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans    &trans              &kp DOWN_ARROW   &trans                          &trans
+&trans  &trans  &trans  &trans  &kp CAPS                                    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans    &trans      &kp UP_ARROW      &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans    &kp LEFT_ARROW  &kp RIGHT_ARROW   &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans    &trans      &kp DOWN_ARROW    &trans                          &trans
             >;
-
-            // ★ここも逆向き
-
-            sensor-bindings = <&inc_dec_kp DOWN_ARROW UP_ARROW &inc_dec_kp DOWN_ARROW UP_ARROW>;
+            sensor-bindings = <&scroll_up_down &scroll_up_down>;
         };
 
         MOUSE {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans  &mkp MB1  &mkp MB2  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans    &trans    &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans    &trans    &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                              &trans
+&trans  &trans  &trans  &trans  &trans                      &trans    &mkp MB1  &mkp MB2  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans    &trans    &trans    &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans    &trans    &trans    &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                &trans
             >;
-
-            // ★ここも逆向き
-
-            sensor-bindings = <&inc_dec_kp DOWN_ARROW UP_ARROW &inc_dec_kp DOWN_ARROW UP_ARROW>;
+            sensor-bindings = <&scroll_up_down &scroll_up_down>;
         };
 
         SCROLL {
@@ -125,23 +140,17 @@
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                          &trans
             >;
-
-            // ★ここも逆向き
-
-            sensor-bindings = <&inc_dec_kp DOWN_ARROW UP_ARROW &inc_dec_kp DOWN_ARROW UP_ARROW>;
+            sensor-bindings = <&scroll_up_down &scroll_up_down>;
         };
 
         layer_6 {
             bindings = <
-&trans  &trans        &trans        &trans        &trans                           &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-&trans  &trans        &trans        &trans        &trans  &trans      &trans       &trans        &trans        &trans        &trans        &trans
-&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &trans      &bootloader  &trans        &trans        &trans        &trans        &bt BT_CLR
-&trans  &trans        &trans        &trans        &trans  &trans      &trans       &trans                                                  &bt BT_CLR_ALL
+&trans  &trans        &trans        &trans        &trans                                    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
+&trans  &trans        &trans        &trans        &trans  &trans      &trans        &trans        &trans        &trans        &trans        &trans
+&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &trans      &bootloader   &trans        &trans        &trans        &trans        &bt BT_CLR
+&trans  &trans        &trans        &trans        &trans  &trans      &trans        &trans                                                  &bt BT_CLR_ALL
             >;
-
-            // ★最後も逆向き
-
-            sensor-bindings = <&inc_dec_kp DOWN_ARROW UP_ARROW &inc_dec_kp DOWN_ARROW UP_ARROW>;
+            sensor-bindings = <&scroll_up_down &scroll_up_down>;
         };
     };
 };
