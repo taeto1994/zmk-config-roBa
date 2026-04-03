@@ -102,10 +102,10 @@
 
         FUNCTION {
             bindings = <
-&trans  &trans  &trans  &trans  &kp PRINTSCREEN                                     &kp STAR  &kp LPAR  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &kp DOUBLE_QUOTES  &kp PERCENT        &kp ASTERISK  &trans    &trans    &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &kp HASH           &kp AMPERSAND      &kp DOLLAR    &trans    &trans    &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans             &trans             &kp AT        &trans                              &trans
+&trans  &trans  &trans  &trans         &kp PRINTSCREEN                                     &kp STAR  &kp LPAR  &trans  &trans  &trans
+&trans  &trans  &trans  &trans         &kp AT            &kp PERCENT      &kp KP_MULTIPLY  &trans    &trans    &trans  &trans  &trans
+&trans  &trans  &trans  &trans         &kp HASH          &kp CARET        &kp DOLLAR       &trans    &trans    &trans  &trans  &trans
+&trans  &trans  &trans  &kp C_AC_BACK  &kp C_AC_FORWARD  &kp PERCENT      &trans           &trans                              &trans
             >;
 
             sensor-bindings = <&scroll_up_down &scroll_up_down>;
