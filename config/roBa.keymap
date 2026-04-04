@@ -69,12 +69,11 @@
             tapping-term-ms = <200>;
         };
 
-        // ★マウスホイール機能の設定（逆向き）
+        // ★修正：エラーの原因だった tap-ms の1行を削除したよ！
         scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
-            tap-ms = ;
         };
     };
 
