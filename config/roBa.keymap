@@ -1,4 +1,5 @@
 // スクロールの移動量
+
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
 
 #include <behaviors.dtsi>
@@ -12,6 +13,7 @@
 };
 
 // トラックボールの振動対策（短押しを優先するストッパー）
+
 &lt {
     flavor = "tap-preferred";
     tapping-term-ms = <250>;
@@ -65,15 +67,18 @@
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_TO_0";
             bindings = <&mo>, <&to_layer_0>;
+
             #binding-cells = <2>;
             tapping-term-ms = <200>;
         };
 
         // マウスホイール機能の設定（tap-msを復活！）
+
         scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+
             tap-ms = <20>;
         };
     };
@@ -84,10 +89,11 @@
         default_layer {
             bindings = <
 &kp Q      &kp W         &kp E         &kp R                 &kp T                                              &kp Y          &kp U  &kp I      &kp O    &kp P
-&kp A      &kp S         &kp D         &kp F                 &kp G        &kp ESCAPE              &kp MINUS     &kp H          &kp J  &kp K      &kp L    &kp SQT
-&kp Z      &kp X         &kp C         &kp V                 &kp B        &lt 6 LEFT_BRACKET      &kp LS(INT1)  &kp N          &kp M  &kp COMMA  &kp DOT  &kp SLASH
+&kp A      &kp S         &kp D         &kp F                 &kp G        &kp ESCAPE              &kp LS(INT1)  &kp H          &kp J  &kp K      &kp L    &kp SQT
+&kp Z      &kp X         &kp C         &kp V                 &kp B        &lt 6 LEFT_BRACKET      &kp MINUS     &kp N          &kp M  &kp COMMA  &kp DOT  &kp SLASH
 &kp LCTRL  &kp LEFT_WIN  &kp LEFT_ALT  &mt LEFT_SHIFT GRAVE  &lt 2 SPACE  &lt 3 ENTER             &lt 1 ENTER   &kp BACKSPACE                             &kp DEL
             >;
+
             sensor-bindings = <&scroll_up_down &scroll_up_down>;
         };
 
@@ -98,6 +104,7 @@
 &trans  &trans  &trans  &trans         &kp HASH          &kp CARET        &kp DOLLAR       &trans    &trans    &trans  &trans  &trans
 &trans  &trans  &trans  &kp C_AC_BACK  &kp C_AC_FORWARD  &kp PERCENT      &trans           &trans                              &trans
             >;
+
             sensor-bindings = <&scroll_up_down &scroll_up_down>;
         };
 
@@ -108,6 +115,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans      &kp COLON       &kp LEFT_BRACKET  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans          &trans                                                               &trans
             >;
+
             sensor-bindings = <&scroll_up_down &scroll_up_down>;
         };
 
@@ -118,6 +126,7 @@
 &trans  &trans  &trans  &trans  &trans    &kp LEFT_ARROW      &kp RIGHT_ARROW  &trans    &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans    &trans              &kp DOWN_ARROW   &trans                            &trans
             >;
+
             sensor-bindings = <&scroll_up_down &scroll_up_down>;
         };
 
@@ -128,6 +137,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans    &trans    &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                              &trans
             >;
+
             sensor-bindings = <&scroll_up_down &scroll_up_down>;
         };
 
@@ -138,6 +148,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                          &trans
             >;
+
             sensor-bindings = <&scroll_up_down &scroll_up_down>;
         };
 
@@ -148,6 +159,7 @@
 &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &trans      &bootloader  &trans        &trans        &trans        &trans        &bt BT_CLR
 &trans  &trans        &trans        &trans        &trans  &trans      &trans       &trans                                                  &bt BT_CLR_ALL
             >;
+
             sensor-bindings = <&scroll_up_down &scroll_up_down>;
         };
     };
