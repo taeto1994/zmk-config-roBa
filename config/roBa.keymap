@@ -1,5 +1,4 @@
 // ★スクロールの移動量（この数字を大きくするとスクロールが速くなるよ）
-
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
 
 #include <behaviors.dtsi>
@@ -12,13 +11,11 @@
     quick-tap-ms = <0>;
 };
 
-// ★タイピング中のレイヤー誤爆を防ぐ設定
-
+// ★修正：トラックボールの振動を無視する誤爆防止設定に変更！
 &lt {
-    flavor = "balanced";
-    tapping-term-ms = <200>;
+    flavor = "tap-preferred"; // 長押しと短押しで迷ったら「短押し」を優先する
+    tapping-term-ms = <250>;  // 長押しの判定を少しだけ長くする（これでタイピング中の誤爆を防ぎます）
     quick-tap-ms = <150>;
-    require-prior-idle-ms = <150>;
 };
 
 &trackball {
@@ -68,19 +65,16 @@
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_TO_0";
             bindings = <&mo>, <&to_layer_0>;
-
             #binding-cells = <2>;
             tapping-term-ms = <200>;
         };
 
         // ★マウスホイール機能の設定（逆向き）
-
         scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
-
-            tap-ms = <20>;
+            tap-ms = ;
         };
     };
 
@@ -96,7 +90,6 @@
             >;
 
             // ★エンコーダーをマウスホイールに！
-
             sensor-bindings = <&scroll_up_down &scroll_up_down>;
         };
 
