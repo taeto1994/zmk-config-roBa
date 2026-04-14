@@ -17,8 +17,8 @@
 
 &lt {
     flavor = "tap-preferred";
-    tapping-term-ms = <400>;  // タイピング中のもたつきを感じたら 280 などに下げてみてね
-    quick-tap-ms = <300>;
+    tapping-term-ms = <500>;  // タイピング中のもたつきを感じたら 280 などに下げてみてね
+    quick-tap-ms = <400>;
 };
 
 &trackball {
@@ -35,7 +35,7 @@
             layers = <2>;
             input-processors =
                 <&zip_xy_to_scroll_mapper>,
-                <&zip_scroll_scaler 1 3>;
+                <&zip_scroll_scaler (-1) 3>;
         };
     };
 
