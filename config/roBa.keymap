@@ -90,6 +90,13 @@
             bindings = <&kp LS(S) &kp T &kp A &kp A &kp K &kp I &kp A &kp T &kp U &kp O &kp E &kp N8>;
             label = "NEW_TAETO2";
         };
+
+        alt_tab: alt_tab {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_ALT &kp TAB>;
+            label = "ALT_TAB";
+        };
     };
 
     behaviors {
@@ -131,10 +138,10 @@
 
         FUNCTION {
             bindings = <
-&new_taeto  &new_taeto2  &trans  &trans         &kp PRINTSCREEN                                     &kp STAR  &kp LPAR  &trans  &trans  &trans
-&trans      &trans       &trans  &trans         &kp AT            &kp PERCENT      &kp KP_MULTIPLY  &trans    &trans    &trans  &trans  &trans
-&trans      &trans       &trans  &trans         &kp HASH          &kp CARET        &kp DOLLAR       &trans    &trans    &trans  &trans  &trans
-&trans      &trans       &trans  &kp C_AC_BACK  &kp C_AC_FORWARD  &kp PERCENT      &trans           &trans                              &trans
+&new_taeto  &new_taeto2  &alt_tab  &trans         &kp PRINTSCREEN                                     &kp STAR  &kp LPAR  &trans  &trans  &trans
+&trans      &trans       &trans    &trans         &kp AT            &kp PERCENT      &kp KP_MULTIPLY  &trans    &trans    &trans  &trans  &trans
+&trans      &trans       &trans    &trans         &kp HASH          &kp CARET        &kp DOLLAR       &trans    &trans    &trans  &trans  &trans
+&trans      &trans       &trans    &kp C_AC_BACK  &kp C_AC_FORWARD  &kp PERCENT      &trans           &trans                              &trans
             >;
 
             sensor-bindings = <&scroll_up_down &scroll_up_down>;
