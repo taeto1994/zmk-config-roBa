@@ -123,10 +123,10 @@
 
         ARROW {
             bindings = <
-&trans  &trans  &trans  &trans  &kp CAPS                                &trans          &kp UP_ARROW    &trans           &trans  &trans
-&trans  &trans  &trans  &trans  &trans    &trans      &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans  &trans
-&trans  &trans  &trans  &trans  &trans    &trans      &trans  &trans          &trans          &trans           &trans  &trans
-&trans  &trans  &trans  &trans  &trans    &trans      &trans  &trans                                           &trans
+&trans  &trans  &trans  &trans  &kp CAPS                                       &kp CAPS  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans    &trans              &kp UP_ARROW     &trans    &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans    &kp LEFT_ARROW      &kp RIGHT_ARROW  &trans    &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans    &trans              &kp DOWN_ARROW   &trans                            &trans
             >;
             sensor-bindings = <&scroll_up_down &scroll_up_down>;
         };
