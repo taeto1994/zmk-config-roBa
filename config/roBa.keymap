@@ -36,14 +36,7 @@
         };
     };
 
-    combos {
-        compatible = "zmk,combos";
-
-        tab {
-            bindings = <&kp TAB>;
-            key-positions = <1 0>;
-        };
-    };
+    combos { compatible = "zmk,combos"; };
 
     macros {
         to_layer_0: to_layer_0 {
@@ -136,10 +129,10 @@
 
         ARROW {
             bindings = <
-&trans  &trans  &trans  &trans  &kp CAPS                                       &kp CAPS  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans    &trans              &kp UP_ARROW     &trans    &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans    &kp LEFT_ARROW      &kp RIGHT_ARROW  &trans    &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans    &trans              &kp DOWN_ARROW   &trans                            &trans
+&trans  &trans  &trans  &trans          &kp CAPS                                     &kp CAPS  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans          &kp UP_ARROW    &trans               &trans  &trans    &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW      &trans  &trans    &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans          &trans          &trans               &trans  &trans                            &trans
             >;
 
             sensor-bindings = <&scroll_up_down &scroll_up_down>;
