@@ -98,10 +98,10 @@
 
         FUNCTION {
             bindings = <
-&new_taeto  &new_taeto2  &kp LA(TAB)  &trans        &kp PRINTSCREEN                                    &kp STAR  &kp LPAR  &trans  &trans  &trans
-&trans      &trans       &trans       &trans        &kp AT           &kp PERCENT      &kp KP_MULTIPLY  &trans    &trans    &trans  &trans  &trans
-&trans      &trans       &trans       &trans        &kp HASH         &kp CARET        &kp DOLLAR       &trans    &trans    &trans  &trans  &trans
-&trans      &trans       &trans       &kp LA(LEFT)  &kp LA(RIGHT)    &kp PERCENT      &trans           &trans                              &trans
+&new_taeto  &new_taeto2  &kp LA(TAB)  &trans        &kp PRINTSCREEN                                      &kp STAR     &kp LPAR  &trans  &trans  &trans
+&trans      &trans       &trans       &trans        &kp AT           &trans             &kp KP_MULTIPLY  &kp PERCENT  &trans    &trans  &trans  &trans
+&trans      &trans       &trans       &trans        &kp HASH         &kp CARET          &kp DOLLAR       &trans       &trans    &trans  &trans  &trans
+&trans      &trans       &trans       &kp LA(LEFT)  &kp LA(RIGHT)    &kp LC(ENTER)      &trans           &trans                                 &trans
             >;
 
             sensor-bindings = <&scroll_up_down &scroll_up_down>;
