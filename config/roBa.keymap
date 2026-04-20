@@ -59,13 +59,6 @@
             bindings = <&kp LS(S) &kp T &kp A &kp A &kp K &kp I &kp A &kp T &kp U &kp O &kp E &kp N8>;
             label = "NEW_TAETO2";
         };
-
-        alt_tab: alt_tab {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LEFT_ALT &kp TAB>;
-            label = "ALT_TAB";
-        };
     };
 
     behaviors {
@@ -92,10 +85,10 @@
 
         default_layer {
             bindings = <
-&kp Q  &kp W                      &kp E         &kp R                 &kp T                                              &kp Y          &kp U  &kp I      &kp O    &kp P
-&kp A  &kp S                      &kp D         &kp F                 &kp G        &kp ESCAPE              &kp LS(INT1)  &kp H          &kp J  &kp K      &kp L    &kp SQT
-&kp Z  &kp X                      &kp C         &kp V                 &kp B        &lt 6 LEFT_BRACKET      &kp MINUS     &kp N          &kp M  &kp COMMA  &kp DOT  &kp SLASH
-&none  &mt LEFT_CONTROL LEFT_WIN  &kp LEFT_ALT  &mt LEFT_SHIFT GRAVE  &lt 2 SPACE  &lt 3 SPACE             &lt 1 ENTER   &kp BACKSPACE                             &kp DEL
+&kp Q    &kp W                      &kp E         &kp R                 &kp T                                              &kp Y          &kp U  &kp I      &kp O    &kp P
+&kp A    &kp S                      &kp D         &kp F                 &kp G        &kp PRINTSCREEN         &kp LS(INT1)  &kp H          &kp J  &kp K      &kp L    &kp SQT
+&kp Z    &kp X                      &kp C         &kp V                 &kp B        &lt 6 LEFT_BRACKET      &kp MINUS     &kp N          &kp M  &kp COMMA  &kp DOT  &kp SLASH
+&kp ESC  &mt LEFT_CONTROL LEFT_WIN  &kp LEFT_ALT  &mt LEFT_SHIFT GRAVE  &lt 2 SPACE  &lt 3 ENTER             &lt 1 ENTER   &kp BACKSPACE                             &kp DEL
             >;
 
             // ★右親指を「&lt 5 SPACE」に変更！ここを押している間だけスクロールになります。
@@ -105,10 +98,10 @@
 
         FUNCTION {
             bindings = <
-&new_taeto  &new_taeto2  &alt_tab  &trans        &kp PRINTSCREEN                                    &kp STAR  &kp LPAR  &trans  &trans  &trans
-&trans      &trans       &trans    &trans        &kp AT           &kp PERCENT      &kp KP_MULTIPLY  &trans    &trans    &trans  &trans  &trans
-&trans      &trans       &trans    &trans        &kp HASH         &kp CARET        &kp DOLLAR       &trans    &trans    &trans  &trans  &trans
-&trans      &trans       &trans    &kp LA(LEFT)  &kp LA(RIGHT)    &kp PERCENT      &trans           &trans                              &trans
+&new_taeto  &new_taeto2  &kp LA(TAB)  &trans        &kp PRINTSCREEN                                    &kp STAR  &kp LPAR  &trans  &trans  &trans
+&trans      &trans       &trans       &trans        &kp AT           &kp PERCENT      &kp KP_MULTIPLY  &trans    &trans    &trans  &trans  &trans
+&trans      &trans       &trans       &trans        &kp HASH         &kp CARET        &kp DOLLAR       &trans    &trans    &trans  &trans  &trans
+&trans      &trans       &trans       &kp LA(LEFT)  &kp LA(RIGHT)    &kp PERCENT      &trans           &trans                              &trans
             >;
 
             sensor-bindings = <&scroll_up_down &scroll_up_down>;
@@ -129,10 +122,10 @@
 
         ARROW {
             bindings = <
-&trans  &trans  &trans  &trans          &kp CAPS                                     &kp CAPS  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans          &kp UP_ARROW    &trans               &trans  &trans    &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW      &trans  &trans    &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans          &trans          &trans               &trans  &trans                            &trans
+&trans  &trans  &trans  &trans          &kp CAPS                                     &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans          &kp UP_ARROW    &trans               &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW      &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans          &trans          &trans               &trans  &trans                          &trans
             >;
 
             sensor-bindings = <&scroll_up_down &scroll_up_down>;
