@@ -85,10 +85,10 @@
 
         default_layer {
             bindings = <
-&kp Q    &kp W                      &kp E         &kp R                 &kp T                                              &kp Y          &kp U  &kp I      &kp O    &kp P
-&kp A    &kp S                      &kp D         &kp F                 &kp G        &kp PRINTSCREEN         &kp LS(INT1)  &kp H          &kp J  &kp K      &kp L    &kp SQT
-&kp Z    &kp X                      &kp C         &kp V                 &kp B        &lt 6 LEFT_BRACKET      &kp MINUS     &kp N          &kp M  &kp COMMA  &kp DOT  &kp SLASH
-&kp ESC  &mt LEFT_CONTROL LEFT_WIN  &kp LEFT_ALT  &mt LEFT_SHIFT GRAVE  &lt 2 SPACE  &lt 3 ENTER             &lt 1 ENTER   &kp BACKSPACE                             &kp DEL
+&kp Q    &kp W                      &kp E         &kp R                 &kp T                                             &kp Y          &kp U  &kp I      &kp O    &kp P
+&kp A    &kp S                      &kp D         &kp F                 &kp G        &kp PRINTSCREEN         &kp INT1     &kp H          &kp J  &kp K      &kp L    &kp SQT
+&kp Z    &kp X                      &kp C         &kp V                 &kp B        &lt 6 LEFT_BRACKET      &kp MINUS    &kp N          &kp M  &kp COMMA  &kp DOT  &kp SLASH
+&kp ESC  &mt LEFT_CONTROL LEFT_WIN  &kp LEFT_ALT  &mt LEFT_SHIFT GRAVE  &lt 2 SPACE  &lt 3 ENTER             &lt 1 ENTER  &kp BACKSPACE                             &kp DEL
             >;
 
             // ★右親指を「&lt 5 SPACE」に変更！ここを押している間だけスクロールになります。
