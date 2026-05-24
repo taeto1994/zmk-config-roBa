@@ -158,6 +158,8 @@
             >;
 
             // このレイヤー（Layer 5）にいる時だけ、ボールがホイールとして動きます！
+
+            sensor-bindings = <&scroll_up_down>;
         };
 
         layer_6 {
