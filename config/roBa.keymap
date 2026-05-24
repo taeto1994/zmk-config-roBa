@@ -32,7 +32,7 @@
             layers = <5>; // ★Layer 5（スクロール専用）の時だけ動くように変更！
             input-processors =
                 <&zip_xy_to_scroll_mapper>,
-                <&zip_scroll_scaler (-1) 3>;
+                <&zip_scroll_scaler (-1) 5>;
         };
     };
 
