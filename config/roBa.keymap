@@ -60,11 +60,11 @@
             label = "NEW_TAETO2";
         };
 
-        paste_and_go: paste_and_go {
+        kakko: kakko {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LC(L) &kp LC(V) &kp ENTER>;
-            label = "PASTE_AND_GO";
+            bindings = <&kp STAR &kp LPAR>;
+            label = "KAKKO";
         };
     };
 
@@ -92,10 +92,10 @@
 
         default_layer {
             bindings = <
-&kp Q         &kp W                      &kp E         &kp R                 &kp T                                              &kp Y          &kp U  &kp I      &kp O    &kp P
-&kp A         &kp S                      &kp D         &kp F                 &kp G        &kp PRINTSCREEN         &kp LS(INT1)  &kp H          &kp J  &kp K      &kp L    &kp SQT
-&kp Z         &kp X                      &kp C         &kp V                 &kp B        &lt 6 LEFT_BRACKET      &kp MINUS     &kp N          &kp M  &kp COMMA  &kp DOT  &kp SLASH
-&lt 5 ESCAPE  &mt LEFT_CONTROL LEFT_WIN  &kp LEFT_ALT  &mt LEFT_SHIFT GRAVE  &lt 2 SPACE  &lt 3 ENTER             &lt 1 ENTER   &kp BACKSPACE                             &kp DEL
+&kp Q       &kp W                      &kp E         &kp R                 &kp T                                              &kp Y          &kp U  &kp I      &kp O    &kp P
+&kp A       &kp S                      &kp D         &kp F                 &kp G        &lt 5 CARET             &kp LS(INT1)  &kp H          &kp J  &kp K      &kp L    &kp SQT
+&kp Z       &kp X                      &kp C         &kp V                 &kp B        &lt 6 LEFT_BRACKET      &kp MINUS     &kp N          &kp M  &kp COMMA  &kp DOT  &kp SLASH
+&kp ESCAPE  &mt LEFT_CONTROL LEFT_WIN  &kp LEFT_ALT  &mt LEFT_SHIFT GRAVE  &lt 2 SPACE  &lt 3 ENTER             &lt 1 ENTER   &kp BACKSPACE                             &kp DEL
             >;
 
             // ★右親指を「&lt 5 SPACE」に変更！ここを押している間だけスクロールになります。
@@ -105,10 +105,10 @@
 
         FUNCTION {
             bindings = <
-&new_taeto  &new_taeto2  &kp TAB  &trans        &kp PRINTSCREEN                                      &kp STAR     &kp LPAR       &trans  &trans  &trans
-&trans      &trans       &trans   &trans        &kp AT           &trans             &kp KP_MULTIPLY  &kp PERCENT  &paste_and_go  &trans  &trans  &trans
-&trans      &trans       &trans   &trans        &kp HASH         &kp CARET          &kp DOLLAR       &trans       &trans         &trans  &trans  &trans
-&trans      &trans       &trans   &kp LA(LEFT)  &kp LA(RIGHT)    &kp LC(ENTER)      &trans           &trans                                      &trans
+&new_taeto  &new_taeto2  &kp TAB  &trans        &kp PRINTSCREEN                                         &kakko  &kp LA(TAB)  &trans  &trans  &trans
+&trans      &trans       &trans   &trans        &trans           &kp LS(LC(NUMBER_9))      &kp PERCENT  &trans  &trans       &trans  &trans  &trans
+&trans      &trans       &trans   &trans        &kp HASH         &kp CARET                 &trans       &trans  &trans       &trans  &trans  &trans
+&trans      &trans       &trans   &kp LA(LEFT)  &kp LA(RIGHT)    &kp LC(ENTER)             &trans       &trans                               &trans
             >;
 
             sensor-bindings = <&scroll_up_down &scroll_up_down>;
@@ -116,10 +116,10 @@
 
         NUM {
             bindings = <
-&kp F1  &kp F2  &trans  &kp LG(D)  &kp LC(C)                              &kp CARET         &kp N7  &kp N8  &kp N9  &kp N0
-&trans  &trans  &trans  &kp LG(H)  &kp LC(V)  &trans      &kp UNDERSCORE  &kp EXCLAMATION   &kp N4  &kp N5  &kp N6  &trans
-&trans  &trans  &trans  &trans     &trans     &trans      &kp COLON       &kp LEFT_BRACKET  &kp N1  &kp N2  &kp N3  &trans
-&trans  &trans  &trans  &trans     &trans     &trans      &trans          &trans                                    &trans
+&kp F1  &kp F2  &trans  &kp LG(D)  &kp LC(C)                                   &kp CARET        &kp N7  &kp N8  &kp N9  &kp N0
+&trans  &trans  &trans  &kp LG(H)  &kp LC(V)  &kp DOLLAR      &kp UNDERSCORE   &kp EXCLAMATION  &kp N4  &kp N5  &kp N6  &trans
+&trans  &trans  &trans  &trans     &trans     &kp HASH        &kp COLON        &kp AT           &kp N1  &kp N2  &kp N3  &trans
+&trans  &trans  &trans  &trans     &trans     &trans          &kp KP_MULTIPLY  &trans                                   &trans
             >;
 
             // ここでの数字入力中にボールが揺れても、もうスクロールしません！
@@ -129,10 +129,10 @@
 
         ARROW {
             bindings = <
-&trans  &trans  &trans  &trans          &kp CAPS                                     &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans          &kp UP_ARROW    &trans               &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans          &trans          &trans               &trans  &trans                          &trans
+&trans  &trans  &trans  &trans          &kp CAPS                                                   &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans          &kp UP_ARROW    &trans               &kp LS(LC(UP_ARROW))  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW      &kp LS(LC(DOWN))      &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans          &trans          &trans               &trans                &trans                          &trans
             >;
 
             sensor-bindings = <&scroll_up_down &scroll_up_down>;
