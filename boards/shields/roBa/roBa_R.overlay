@@ -1,9 +1,5 @@
 #include "roBa.dtsi"
 
-#include <input/processors.dtsi>
-#include <zephyr/dt-bindings/input/input-event-codes.h>
-#include <dt-bindings/zmk/input_transform.h>
-
 &default_transform {
     col-offset = <6>;
 };
@@ -19,40 +15,10 @@
 };
 
 / {
-    input_processors {
-        roba_xy_to_scroll_mapper: roba_xy_to_scroll_mapper {
-            compatible = "zmk,input-processor-code-mapper";
-            #input-processor-cells = <0>;
-            type = <INPUT_EV_REL>;
-
-            /*
-             * roBa用のスクロール変換
-             *
-             * INPUT_REL_Y -> INPUT_REL_WHEEL
-             * 上下の動きは、上下スクロールへ送る
-             *
-             * INPUT_REL_X -> INPUT_REL_HWHEEL
-             * 左右の動きは、横スクロールへ送る
-             */
-            map = <
-                INPUT_REL_Y INPUT_REL_WHEEL
-                INPUT_REL_X INPUT_REL_HWHEEL
-            >;
-        };
-    };
-
     trackball_listener {
         status = "okay";
         compatible = "zmk,input-listener";
         device = <&trackball>;
-
-        scroller {
-            layers = <5>;
-            input-processors = <
-                &roba_xy_to_scroll_mapper
-                &zip_scroll_transform INPUT_TRANSFORM_X_INVERT
-            >;
-        };
     };
 };
 
