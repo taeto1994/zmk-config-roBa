@@ -2,6 +2,7 @@
 
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 
 &default_transform {
     col-offset = <6>;
@@ -18,6 +19,16 @@
 };
 
 / {
+    input_processors {
+        horizontal_scroll_inverter: horizontal_scroll_inverter {
+            compatible = "zmk,input-processor-transform";
+            #input-processor-cells = <1>;
+            type = <INPUT_EV_REL>;
+            x-codes = <INPUT_REL_HWHEEL>;
+            y-codes = <INPUT_REL_WHEEL>;
+        };
+    };
+
     trackball_listener {
         status = "okay";
         compatible = "zmk,input-listener";
@@ -26,8 +37,8 @@
         scroller {
             layers = <5>;
             input-processors = <
-                &zip_xy_transform INPUT_TRANSFORM_X_INVERT
                 &zip_xy_to_scroll_mapper
+                &horizontal_scroll_inverter INPUT_TRANSFORM_X_INVERT
             >;
         };
     };
