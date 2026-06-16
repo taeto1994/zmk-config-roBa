@@ -30,10 +30,15 @@
         compatible = "zmk,input-listener";
         device = <&trackball>;
 
+        // トラックボールを動かした時に、自動でMOUSEレイヤーを有効化
+        // MOUSEレイヤーは Layer 4
+        input-processors = <&zip_temp_layer 4 700>;
+
         scroll_layer {
             layers = <5>;
             input-processors =
                 <&zip_xy_to_scroll_mapper>,
+                <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
                 <&zip_scroll_scaler 1 3>;
         };
     };
