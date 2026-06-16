@@ -27,13 +27,14 @@
 
 / {
     input_processors {
-        horizontal_scroll_inverter: horizontal_scroll_inverter {
-            compatible = "zmk,input-processor-transform";
-            #input-processor-cells = <1>;
-            type = <INPUT_EV_REL>;
-            x-codes = <INPUT_REL_HWHEEL>;
-        };
+    horizontal_scroll_inverter: horizontal_scroll_inverter {
+        compatible = "zmk,input-processor-transform";
+        #input-processor-cells = <1>;
+        type = <INPUT_EV_REL>;
+        x-codes = <INPUT_REL_HWHEEL>;
+        y-codes = <INPUT_REL_WHEEL>;
     };
+};
 
     trackball_listener {
         compatible = "zmk,input-listener";
