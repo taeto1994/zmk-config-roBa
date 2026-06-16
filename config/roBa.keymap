@@ -7,6 +7,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/input_transform.h>
 
 &mt {
     flavor = "balanced";
@@ -29,8 +30,9 @@
         device = <&trackball>;
 
         scroll_layer {
-            layers = <5>; // ★Layer 5（スクロール専用）の時だけ動くように変更！
+            layers = <5>; // ★Layer 5（スクロール専用）の時だけ動く
             input-processors =
+                <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,
                 <&zip_xy_to_scroll_mapper>,
                 <&zip_scroll_scaler (-1) 3>;
         };
