@@ -33,7 +33,7 @@
         // トラックボールを動かした時に、自動でMOUSEレイヤーを有効化
         // MOUSEレイヤーは Layer 4
 
-        input-processors = <&zip_temp_layer 4 700>;
+        input-processors = <&zip_temp_layer 4 300>;
 
         scroll_layer {
             layers = <5>;
