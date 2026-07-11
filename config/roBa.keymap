@@ -37,7 +37,6 @@
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-
         input-processors = <&mouse_temp_layer_no_typing 4 700>;
 
         scroll_layer {
@@ -49,9 +48,7 @@
         };
     };
 
-    combos {
-        compatible = "zmk,combos";
-    };
+    combos { compatible = "zmk,combos"; };
 
     macros {
         to_layer_0: to_layer_0 {
@@ -85,7 +82,7 @@
         kagikakko: kagikakko {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_BRACKET &kp RIGHT_BRACKET>;
+            bindings = <&kp RIGHT_BRACKET &kp BACKSLASH>;
             label = "KAGIKAKKO";
         };
     };
@@ -115,7 +112,7 @@
         default_layer {
             bindings = <
 &kp Q         &kp W             &kp E         &kp R                 &kp T                                              &kp Y          &kp U  &kp I      &kp O    &kp P
-&kp A         &kp S             &kp D         &kp F                 &kp G        &lt 5 ESC               &kp LS(INT1)  &kp H          &kp J  &kp K      &kp L    &kp SQT
+&kp A         &kp S             &kp D         &kp F                 &kp G        &kp ESCAPE              &kp LS(INT1)  &kp H          &kp J  &kp K      &kp L    &lt 5 APOS
 &kp Z         &kp X             &kp C         &kp V                 &kp B        &lt 6 LEFT_BRACKET      &kp MINUS     &kp N          &kp M  &kp COMMA  &kp DOT  &kp SLASH
 &kp LEFT_WIN  &kp LEFT_CONTROL  &kp LEFT_ALT  &mt LEFT_SHIFT GRAVE  &lt 2 SPACE  &lt 3 ENTER             &lt 1 ENTER   &kp BACKSPACE                             &kp DEL
             >;
@@ -127,10 +124,10 @@
 
         FUNCTION {
             bindings = <
-&new_taeto  &new_taeto2  &kp TAB  &trans        &kp PRINTSCREEN                                           &kakko      &kp LA(TAB)  &trans  &trans  &trans
-&trans      &trans       &trans   &trans        &trans           &kp LS(LC(NUMBER_9))      &kp LG(RG(C))  &kagikakko  &trans       &trans  &trans  &trans
-&trans      &trans       &trans   &trans        &kp HASH         &kp CARET                 &kp RG(V)      &trans      &trans       &trans  &trans  &trans
-&trans      &trans       &trans   &kp LA(LEFT)  &kp LA(RIGHT)    &kp LC(ENTER)             &trans         &trans                                   &trans
+&new_taeto  &new_taeto2  &kp TAB  &trans        &kp PRINTSCREEN                                           &kakko      &kp LEFT_ALT  &kp TAB  &trans  &trans
+&trans      &trans       &trans   &trans        &trans           &kp LS(LC(NUMBER_9))      &kp LG(RG(C))  &kagikakko  &trans        &trans   &trans  &trans
+&trans      &trans       &trans   &trans        &kp HASH         &kp CARET                 &kp RG(V)      &trans      &trans        &trans   &trans  &trans
+&trans      &trans       &trans   &kp LA(LEFT)  &kp LA(RIGHT)    &kp LC(ENTER)             &trans         &trans                                     &trans
             >;
 
             sensor-bindings = <&scroll_up_down &scroll_up_down>;
@@ -151,10 +148,10 @@
 
         ARROW {
             bindings = <
-&trans  &trans  &trans  &trans          &trans                                                     &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans          &kp UP_ARROW    &trans               &kp LS(LC(UP_ARROW))  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW      &kp LS(LC(DOWN))      &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans          &trans          &trans               &trans                &trans                          &trans
+&trans              &trans  &trans  &trans          &trans                                                     &trans  &trans  &trans  &trans  &trans
+&trans              &trans  &trans  &trans          &kp UP_ARROW    &trans               &kp LS(LC(UP_ARROW))  &trans  &trans  &trans  &trans  &trans
+&trans              &trans  &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW      &kp LS(LC(DOWN))      &trans  &trans  &trans  &trans  &trans
+&kp LC(LEFT_SHIFT)  &trans  &trans  &trans          &trans          &trans               &trans                &trans                          &trans
             >;
 
             sensor-bindings = <&scroll_up_down &scroll_up_down>;
