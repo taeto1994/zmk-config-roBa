@@ -124,8 +124,8 @@
 
         FUNCTION {
             bindings = <
-&new_taeto  &new_taeto2  &kp TAB  &trans        &kp PRINTSCREEN                                           &kakko      &kp LEFT_ALT  &kp TAB  &trans  &trans
-&trans      &trans       &trans   &trans        &trans           &kp LS(LC(NUMBER_9))      &kp LG(RG(C))  &kagikakko  &trans        &trans   &trans  &trans
+&new_taeto  &new_taeto2  &kp TAB  &trans        &kp PRINTSCREEN                                           &kakko      &kp LEFT_ALT  &kp TAB  &trans  &kp C_VOLUME_UP
+&trans      &trans       &trans   &trans        &trans           &kp LS(LC(NUMBER_9))      &kp LG(RG(C))  &kagikakko  &trans        &trans   &trans  &kp C_VOLUME_DOWN
 &trans      &trans       &trans   &trans        &kp HASH         &kp CARET                 &kp RG(V)      &trans      &trans        &trans   &trans  &trans
 &trans      &trans       &trans   &kp LA(LEFT)  &kp LA(RIGHT)    &kp LC(ENTER)             &trans         &trans                                     &trans
             >;
